@@ -1,0 +1,12 @@
+<span class="invalid-feedback" *ngIf="control && control.errors  && (control.dirty || control.touched)">
+    <span *ngIf="control.errors.required">{{errorMessages.requiredError||'Required'}}</span>
+    <span *ngIf="control.errors.pattern">{{errorMessages.patternError||'Invalid Input Format'}}</span>
+    <span *ngIf="control.errors.maxlength">{{errorMessages.maxlengthError||'Exceeding Maxlength'}}</span>
+    <span *ngIf="control.errors.minlength">{{errorMessages.minlengthError||'Invalid Input'}}</span>
+    <span *ngIf="control.errors.unique">{{control.errors.unique}}</span>
+    <span *ngIf="control.errors.lessThen">{{control.errors.lessThen}}</span>
+    <span *ngIf="control.errors.greaterThan">{{control.errors.greaterThan}}</span>
+    <span *ngIf="control.errors.email">{{control.errors.email}}</span>
+    <span *ngIf="control.errors.mobile">{{control.errors.mobile}}</span>
+    <span *ngIf="control.errors.equalTo">{{errorMessages.equalTo||'Does not matches original'}}</span>
+</span>

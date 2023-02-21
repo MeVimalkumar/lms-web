@@ -1,0 +1,47 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Users</h1>
+        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+            (click)="newBtnHandler()"></button>
+    </div>
+
+    <div class="">
+
+        <p-table #dt [rowsPerPageOptions]="[10,20,50,100]" [totalRecords]="tableData.count"
+            [showCurrentPageReport]="true" [paginator]="true" [value]="tableData.rows" [lazy]="true"
+            (onLazyLoad)="loadData($event)" [rows]="10" class="table_grid"
+            styleClass="p-datatable-gridlines p-datatable-striped"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Role </th>
+                    <th> Date Created </th>
+                    <th> Actions </th>
+                </tr>
+
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr>
+                    <td> {{item.name}} </td>
+                    <td>{{item.email}}</td>
+                    <td> {{item.role}} </td>
+                    <td> {{item.createdAt|date:'MM-dd-yyyy, HH:mm'}} </td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                            (click)="editBtnHandler(item)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                            (click)="deleteBtnHandler(item)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<!-- /.container-fluid -->

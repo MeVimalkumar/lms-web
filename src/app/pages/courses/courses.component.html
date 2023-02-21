@@ -1,0 +1,28 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Courses</h1>
+    </div>
+
+    <div class="row ">
+        <div class="col-lg-4 mb-4" *ngFor="let course of courses;">
+            <!-- Illustrations -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">{{course.title|titlecase}}</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="{{course.url}}"
+                            alt="...">
+                    </div>
+                    <p>
+                        {{course.description}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
